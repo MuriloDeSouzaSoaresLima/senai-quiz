@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz Código</title>
+  <link rel="stylesheet" href="../css/quiz.css">
+  <link rel="stylesheet" href="../css/background.css">
+  <link rel="stylesheet" href="../css/cabecalho.css">
+  <style>
+    .link-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .link-grid a {
+      display: block;
+      padding: 15px;
+      background-color: #007BFF;
+      text-decoration: none;
+      color: white;
+      border-radius: 8px;
+      font-family: monospace;
+      transition: background-color 0.3s;
+    }
+
+
+    .troca:hover::after {
+      content: "typescript?";
+      color: black;
+    }
+
+    .troca::after {
+      content: "html?";
+      color: black;
+      transition: color 0.2s;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="notification-bubble">11</div>
+  </header>
+
+  <main>
+    <h1>Qual dos seguintes códigos é <span class="troca"></span></h1>
+    <div class="link-grid">
+      <a href="../WL/perdeu.html">print("Hello World")</a>
+      <a href="../WL/perdeu.html">&lt;h1&gt;Olá Mundo&lt;/h1&gt;</a>
+      <a href="../WL/acertou.html">let msg: string = "Olá";</a>
+      <a href="../WL/perdeu.html">Console.WriteLine("Olá");</a>
+    </div>
+  </main>
+
+  <footer>Todos os direitos reservados © Barrinha Jr.</footer>
+</body>
+</html>
