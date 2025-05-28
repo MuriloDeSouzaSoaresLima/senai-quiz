@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Desafio da Caixa</title>
+  <link rel="stylesheet" href="../css/quiz.css">
+  <link rel="stylesheet" href="../css/background.css">
+  <link rel="stylesheet" href="../css/cabecalho.css">
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+    }
+
+    main {
+      text-align: center;
+      padding: 20px;
+    }
+
+    .vermelho {
+      color: red;
+    }
+
+    .area-jogo {
+      position: relative;
+      width: 100vw;
+      height: 80vh;
+    }
+
+    .caixa {
+      position: absolute;
+      width: 150px;
+      height: 150px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      cursor: pointer;
+      z-index: 1;
+    }
+
+    .caixa:hover {
+      opacity: 1;
+    }
+
+    .azul {
+      background-color: blue;
+    }
+
+    .vermelha {
+      background-color: red;
+      width: 80px;
+      height: 80px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="notification-bubble">9</div>
+  </header>
+
+  <main>
+    <h1>Encontre a caixa <span class="vermelho">azul</span>!</h1>
+  </main>
+
+  <div class="area-jogo" id="areaJogo">
+    <div class="caixa azul" onclick="window.location.href='../WL/perdeu.html'"></div>
+    <div class="caixa azul" onclick="window.location.href='../WL/perdeu.html'"></div>
+    <div class="caixa azul" onclick="window.location.href='../WL/perdeu.html'"></div>
+    <div class="caixa vermelha" onclick="window.location.href='../WL/acertou.html'"></div>
+  </div>
+
+  <footer>Todos os direitos reservados © Barrinha Jr.</footer>
+
+  <script>
+    function posicionarCaixas() {
+      const caixas = document.querySelectorAll('.caixa');
+      const larguraMax = window.innerWidth;
+      const alturaMax = window.innerHeight * 0.8;
+
+      caixas.forEach(caixa => {
+        const larguraCaixa = caixa.offsetWidth || 150;
+        const alturaCaixa = caixa.offsetHeight || 150;
+
+        const maxLeft = larguraMax - larguraCaixa;
+        const maxTop = alturaMax - alturaCaixa;
+
+        const left = Math.random() * maxLeft;
+        const top = Math.random() * maxTop;
+
+        caixa.style.left = `${left}px`;
+        caixa.style.top = `${top}px`;
+      });
+    }
+
+    window.onload = posicionarCaixas;
+    window.onresize = posicionarCaixas;
+  </script>
+</body>
+</html>
