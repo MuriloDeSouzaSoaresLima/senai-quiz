@@ -1,0 +1,14 @@
+body {
+    background-color: #c2bfbf;
+}
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 10px 0;
+    background-color: #c2bfbf;
+    text-align: right;
+    margin-right: 20px;
+    font-size: 14px;
+    color: #333;
+  }

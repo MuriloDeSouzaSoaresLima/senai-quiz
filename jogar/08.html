@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz 11</title>
+  <link rel="stylesheet" href="../css/quiz.css">
+  <link rel="stylesheet" href="../css/background.css">
+  <link rel="stylesheet" href="../css/cabecalho.css">
+  <style>
+
+
+    .falling-option {
+      position: absolute;
+      top: -50px;
+      left: 20%; /* à esquerda das alternativas */
+      padding: 10px 20px;
+      background-color: #007BFF;
+      color: white;
+      border-radius: 8px;
+      font-weight: bold;
+      text-decoration: none;
+      display: none;
+      z-index: 10;
+    }
+
+    @keyframes fall {
+      0% {
+        top: -50px;
+      }
+      100% {
+        top: 120%;
+      }
+    }
+
+    .falling {
+      display: inline-block;
+      animation: fall 5s linear forwards;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="notification-bubble">8</div>
+  </header>
+  <main>
+    <h1>O que é TypeScript?</h1>
+    <div class="link-grid">
+      <a href="../WL/perdeu.html">Um banco de dados</a>
+      <a href="../WL/perdeu.html">Um navegador</a>
+      <a href="../WL/perdeu.html">Um idioma</a>
+    </div>
+    <a href="../WL/acertou.html" class="falling-option" id="correct">Uma linguagem de programação</a>
+  </main>
+  <footer>Todos os direitos reservados © Barrinha Jr.</footer>
+
+  <script>
+    // Inicia a queda após 7 segundos
+    setTimeout(() => {
+      const correct = document.getElementById("correct");
+      correct.classList.add("falling");
+
+      // Remove a opção correta depois que ela sai da tela (5s)
+      setTimeout(() => {
+        correct.remove();
+      }, 5000);
+    }, 7000);
+  </script>
+</body>
+</html>

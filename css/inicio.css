@@ -1,0 +1,28 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    position: relative;
+  }
+  
+  /* Cabeçalho mais embaixo */
+  header {
+    margin-top: 120px; /* antes era 40px, agora está mais embaixo */
+    font-size: 48px;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  /* Link mais afastado do header */
+  a {
+    margin-top: 100px; /* antes era 20px, agora triplicado */
+    font-size: 25px;
+    color: black;
+    text-decoration: none;
+  }
+  
+  /* Rodapé fixo */

@@ -1,0 +1,22 @@
+/* Estiliza o header com a bolinha azul no canto superior esquerdo */
+header {
+    position: relative;
+    height: 60px;
+    background-color: #c2bfbf;
+  }
+  
+  .notification-bubble {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: blue;
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+  }
+  

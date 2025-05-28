@@ -1,0 +1,49 @@
+a {
+    text-decoration: none;
+    color: #333
+  }
+  
+  /* Centraliza o conteúdo principal */
+  main {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  
+  /* Estiliza o h1 */
+  main h1 {
+    margin-bottom: 40px;
+    font-size: 2rem;
+  }
+  
+  /* Organiza os links em grid */
+  .link-grid {
+    display: grid;
+    grid-template-areas:
+      "left-top right-top"
+      "left-bottom right-bottom";
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Estiliza os links como retângulos */
+  .link-grid a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  /* Define as áreas individuais */
+  .link-grid a:nth-child(1) { grid-area: left-top; }
+  .link-grid a:nth-child(2) { grid-area: right-top; }
+  .link-grid a:nth-child(3) { grid-area: left-bottom; }
+  .link-grid a:nth-child(4) { grid-area: right-bottom; }
+  
