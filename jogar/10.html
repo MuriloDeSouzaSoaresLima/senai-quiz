@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Questão 10</title>
+  <link rel="stylesheet" href="../css/quiz.css">
+  <link rel="stylesheet" href="../css/background.css">
+  <link rel="stylesheet" href="../css/cabecalho.css">
+  <style>
+    .link-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .link-grid a {
+      display: block;
+      padding: 15px;
+      background-color: #007BFF;
+      text-align: center;
+      text-decoration: none;
+      color: white;
+      border-radius: 10px;
+      transition: background-color 0.2s;
+    }
+
+  </style>
+</head>
+<body>
+  <header>
+    <div class="notification-bubble">10</div>
+  </header>
+
+  <main>
+    <h1>Quais linguagens são do frontend?</h1>
+    <div class="link-grid" id="respostas">
+      <!-- As respostas serão preenchidas via JS -->
+    </div>
+  </main>
+
+  <footer>Todos os direitos reservados © Barrinha Jr.</footer>
+
+  <script>
+    const respostasFixas = [
+      { texto: 'html e react', link: '../WL/acertou.html' },
+      { texto: 'react e typescript', link: '../WL/perdeu.html' },
+      { texto: 'html e typescript', link: '../WL/perdeu.html' },
+      { texto: 'typescript e css', link: '../WL/perdeu.html' },
+    ];
+
+    function embaralhar(array) {
+      return array.map(a => [Math.random(), a])
+                  .sort((a, b) => a[0] - b[0])
+                  .map(a => a[1]);
+    }
+
+    function renderizarRespostas() {
+      const container = document.getElementById('respostas');
+      container.innerHTML = ''; // limpa
+      const embaralhadas = embaralhar(respostasFixas);
+
+      embaralhadas.forEach(resp => {
+        const a = document.createElement('a');
+        a.href = resp.link;
+        a.textContent = resp.texto;
+        container.appendChild(a);
+      });
+    }
+
+    // Inicializa ao carregar
+    renderizarRespostas();
+
+    // Embaralha sempre que o mouse passar sobre o bloco inteiro
+    document.getElementById('respostas').addEventListener('mouseenter', renderizarRespostas);
+  </script>
+</body>
+</html>
