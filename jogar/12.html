@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bolas Caindo</title>
+  <link rel="stylesheet" href="../css/quiz.css" />
+  <link rel="stylesheet" href="../css/background.css" />
+  <link rel="stylesheet" href="../css/cabecalho.css" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      position: relative;
+      overflow-x: hidden;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background-color: #c2bfbf;
+      color: white;
+      font-family: Arial, sans-serif;
+    }
+
+    header {
+      padding: 10px;
+      position: relative;
+    }
+
+    .notification-bubble {
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      background-color: blue;
+      color: white;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding-top: 50px;
+      z-index: 1;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 2rem;
+      z-index: 2;
+      color: black;
+    }
+
+    footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 10px 0;
+    background-color: #c2bfbf;
+    text-align: right;
+    margin-right: 20px;
+    font-size: 14px;
+    color: #333;
+  }
+
+    .bola {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      position: absolute;
+      top: -50px;
+      animation: cair linear infinite;
+      cursor: pointer;
+      z-index: 0;
+    }
+
+    .vermelha {
+      background-color: red;
+    }
+    .azul {
+      background-color: red;
+    }
+    .azul:hover {
+      background-color: blue;
+    }
+
+    @keyframes cair {
+      0% {
+        top: -50px;
+      }
+      100% {
+        top: 110vh;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="notification-bubble">12</div>
+  </header>
+  <main>
+    <h1>Clique na bola azul</h1>
+  </main>
+  <footer>Todos os direitos reservados © Barrinha Jr.</footer>
+
+  <script>
+    const totalBolas = 40;
+    const larguraTela = window.innerWidth;
+
+    // Criar bolas vermelhas erradas
+    for (let i = 0; i < totalBolas; i++) {
+      const bola = document.createElement("div");
+      bola.classList.add("bola", "vermelha");
+      bola.style.left = `${Math.random() * (larguraTela - 40)}px`;
+      bola.style.animationDuration = `${6 + Math.random() * 4}s`;
+      bola.onclick = () => window.location.href = "../WL/perdeu.html";
+      document.body.appendChild(bola);
+    }
+
+    // Criar uma bola azul correta
+    const bolaAzul = document.createElement("div");
+    bolaAzul.classList.add("bola", "azul");
+    bolaAzul.style.left = `${Math.random() * (larguraTela - 40)}px`;
+    bolaAzul.style.animationDuration = `${6 + Math.random() * 4}s`;
+    bolaAzul.onclick = () => window.location.href = "../WL/acertou.html";
+    document.body.appendChild(bolaAzul);
+  </script>
+</body>
+</html>
